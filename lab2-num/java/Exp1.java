@@ -59,6 +59,7 @@ public class Exp1
         return result;
     }
     
+    /* QUESTION 1 */
     private static float exp1(float a, float b)
     {
         float result =
