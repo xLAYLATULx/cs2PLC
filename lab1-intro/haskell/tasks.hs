@@ -9,6 +9,7 @@ sayHello =
   putStrLn name
 -}
 
+
 ask :: String -> IO ()
 ask prompt =
   do
@@ -23,3 +24,6 @@ main =
   do
   --sayHello
   ask "please say something"
+
+myFunc :: Integer -> Integer
+myFunc x = x*10
