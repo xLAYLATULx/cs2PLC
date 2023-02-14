@@ -35,6 +35,48 @@ error2Result FP_Overflow = Infinity
 error2Result FP_Underflow = Zero
 error2Result Int_Overflow = VeryDifferent
 
+{- Reverse (Takes result at input and outputs the error)
+module Main where
+
+import System.IO (hSetBuffering, stdout, BufferMode(..))
+
+main =
+    do
+    initialiseIO
+    putStrLn ("known results = " ++ show allResults)
+    result <- getElement "result"
+    putStrLn (show result ++ " is the result of error: " ++ show (result2Error result))
+    
+initialiseIO =
+    do
+    hSetBuffering stdout NoBuffering
+        -- ensure any console output is shown asap
+
+data Error = FP_Rounding | FP_Overflow | FP_Underflow | Int_Overflow
+    deriving (Show, -- default formatting
+              Read, -- default parsing
+              Eq,   -- default equality testing
+              Bounded, -- default minBound and maxBound
+              Enum) -- default sequencing (needed for .. ranges)
+data Result = Zero | Infinity | ABitDifferent | VeryDifferent
+    deriving (Show, -- default formatting
+              Read, -- default parsing
+              Eq,   -- default equality testing
+              Bounded, -- default minBound and maxBound
+              Enum) -- default sequencing (needed for .. ranges)
+
+allResults :: [Result] -- ie it is a list of PL elements
+allResults = [minBound .. maxBound]
+
+result2Error ABitDifferent = FP_Rounding
+result2Error Infinity = FP_Overflow
+result2Error Zero = FP_Underflow
+result2Error VeryDifferent = Int_Overflow
+
+-}
+
+
+
 -- The code below should not be changed and does not need to be fully understood.
 
 {-
