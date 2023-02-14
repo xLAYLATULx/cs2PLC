@@ -113,7 +113,7 @@ public class Overflow
         for ( int j = 0; j <= m; j++ )
         {
             ns_inv = ns_inv / n; // update from 1/n^(i-1) to 1/n^i
-             assert ns_inv >= -Float.MAX_VALUE : "Floating point underflow";
+             assert ns_inv >= Float.MIN_VALUE : "Floating point underflow";
             geom_sum = ns_inv + geom_sum;
             resultList.add(geom_sum);
         }
